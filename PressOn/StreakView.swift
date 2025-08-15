@@ -9,9 +9,25 @@ import SwiftUI
 
 struct StreakView: View {
     @StateObject private var viewModel = StreakViewModel()
+    @State private var showResetAlert = false
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
+                Spacer()
+                // Header with reset button
+                HStack {
+                    Spacer()
+                    Button("Reset") {
+                        showResetAlert = true
+                    }
+                    .foregroundColor(.red)
+                    .font(.system(size: 16, weight: .medium))
+                }
+                .padding(.horizontal, 30)
+                .padding(.top, 20)
+                
+                Spacer()
                     // Main streak number display
                 ZStack {
                     VStack(spacing: 20) {
@@ -31,7 +47,6 @@ struct StreakView: View {
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 40)
                         
-                        Spacer()
                         
                         // Plus button
                         Button(action: {
@@ -59,6 +74,15 @@ struct StreakView: View {
                     }
                 }
             }
+        }.alert("Reset Streak", isPresented: $showResetAlert) {
+            Button("Cancel", role: .cancel) { }
+            Button("Reset", role: .destructive) {
+                withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                    viewModel.resetStreak()
+                }
+            }
+        } message: {
+            Text("Are you sure you want to reset your streak to 0?")
         }
     }
 }
