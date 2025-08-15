@@ -68,6 +68,7 @@ struct StreakView: View {
                                         .shadow(color: .blue.opacity(0.3), radius: 10, x: 0, y: 5)
                                 )
                         }
+                        .buttonStyle(WaterDropButtonStyle())
                         .padding(.bottom, 80)
                         
                         Spacer()
@@ -84,6 +85,12 @@ struct StreakView: View {
         } message: {
             Text("Are you sure you want to reset your streak to 0?")
         }
+    }
+    // MARK: - Private Methods
+    private func animateIncrement() {
+        // Haptic feedback
+        let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
+        impactFeedback.impactOccurred()
     }
 }
 
