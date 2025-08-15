@@ -46,6 +46,20 @@ class StreakViewModel: ObservableObject {
             return "LEGENDARY STATUS ACHIEVED! 🏆✨"
         }
     }
+    
+    func getGradientColors() -> [Color] {
+        switch streak.count {
+        case 0...7:
+            return [.blue, .purple]
+        case 8...14:
+            return [.green, .blue]
+        case 15...30:
+            return [.orange, .red]
+        default:
+            return [.pink, .purple, .blue]
+        }
+    }
+    
     private func saveStreak() {
         userDefaults.set(streak.count, forKey: streakKey)
     }
