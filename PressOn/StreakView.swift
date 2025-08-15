@@ -23,96 +23,94 @@ struct StreakView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack {
+        VStack {
+            Spacer()
+            
+            // Header with reset button
+            HStack {
                 Spacer()
-                
-                // Header with reset button
-                HStack {
-                    Spacer()
-                    Button("Reset") {
-                        showResetAlert = true
-                    }
-                    .foregroundColor(.red)
-                    .font(.system(size: 16, weight: .medium))
+                Button("Reset") {
+                    showResetAlert = true
                 }
-                .padding(.horizontal, 30)
-                .padding(.top, 20)
+                .foregroundColor(.red)
+                .font(.system(size: 16, weight: .medium))
+            }
+            .padding(.horizontal, 30)
+            .padding(.top, 20)
+            
+            Spacer()
+            
+            // Main streak number display
+            ZStack {
+                VStack(spacing: 20) {
+                    Text("Current Streak")
+                        .font(.title2)
+                        .foregroundStyle(.secondary)
+                        .fontWeight(.medium)
+                    
+                    Text("\(viewModel.streak.count)")
+                        .font(.system(size: 120, weight: .bold, design: .rounded))
+                        .foregroundStyle(
+                            LinearGradient(
+                                colors: viewModel.getStreakGradientColors(),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .scaleEffect(scaleEffect)
+                        .animation(.spring(response: 0.5, dampingFraction: 0.6), value: scaleEffect)
+                        .contentTransition(.numericText())
+                    
+                    // Streak message
+                    Text(viewModel.getMessage())
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 40)
+                }
                 
-                Spacer()
-                
-                // Main streak number display
-                ZStack {
-                    VStack(spacing: 20) {
-                        Text("Current Streak")
-                            .font(.title2)
-                            .foregroundStyle(.secondary)
-                            .fontWeight(.medium)
-                        
-                        Text("\(viewModel.streak.count)")
-                            .font(.system(size: 120, weight: .bold, design: .rounded))
-                            .foregroundStyle(
+                // Plus sign animations
+                ForEach(plusAnimations, id: \.id) { animation in
+                    Text("+")
+                        .font(.system(size: 104, weight: .bold, design: .rounded))
+                        .foregroundColor(animation.color)
+                        .offset(x: animation.offsetX, y: animation.offsetY)
+                        .opacity(animation.opacity)
+                        .scaleEffect(animation.scale)
+                        .animation(.easeOut(duration: 1.5), value: animation.offsetY)
+                        .animation(.easeOut(duration: 1.5), value: animation.opacity)
+                        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: animation.scale)
+                }
+            }
+            .padding()
+            
+            // Plus button with water drop effect
+            Button(action: {
+                viewModel.incrementStreak()
+                animateIncrement()
+            }) {
+                Image(systemName: "plus")
+                    .font(.system(size: 30, weight: .semibold))
+                    .foregroundColor(.white)
+                    .frame(width: 80, height: 80)
+                    .background(
+                        Circle()
+                            .fill(
                                 LinearGradient(
-                                    colors: viewModel.getStreakGradientColors(),
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
+                                    colors: [.blue, .blue.opacity(0.8)],
+                                    startPoint: .top,
+                                    endPoint: .bottom
                                 )
                             )
-                            .scaleEffect(scaleEffect)
-                            .animation(.spring(response: 0.5, dampingFraction: 0.6), value: scaleEffect)
-                            .contentTransition(.numericText())
-                        
-                        // Streak message
-                        Text(viewModel.getMessage())
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal, 40)
-                    }
-                    
-                    // Plus sign animations
-                    ForEach(plusAnimations, id: \.id) { animation in
-                        Text("+")
-                            .font(.system(size: 104, weight: .bold, design: .rounded))
-                            .foregroundColor(animation.color)
-                            .offset(x: animation.offsetX, y: animation.offsetY)
-                            .opacity(animation.opacity)
-                            .scaleEffect(animation.scale)
-                            .animation(.easeOut(duration: 1.5), value: animation.offsetY)
-                            .animation(.easeOut(duration: 1.5), value: animation.opacity)
-                            .animation(.spring(response: 0.3, dampingFraction: 0.7), value: animation.scale)
-                    }
-                }
-                .padding()
-                
-                // Plus button with water drop effect
-                Button(action: {
-                    viewModel.incrementStreak()
-                    animateIncrement()
-                }) {
-                    Image(systemName: "plus")
-                        .font(.system(size: 30, weight: .semibold))
-                        .foregroundColor(.white)
-                        .frame(width: 80, height: 80)
-                        .background(
-                            Circle()
-                                .fill(
-                                    LinearGradient(
-                                        colors: [.blue, .blue.opacity(0.8)],
-                                        startPoint: .top,
-                                        endPoint: .bottom
-                                    )
-                                )
-                                .shadow(color: .blue.opacity(0.3), radius: 10, x: 0, y: 5)
-                        )
-                        .scaleEffect(bounceAnimation ? 0.9 : 1.0)
-                        .animation(.spring(response: 0.2, dampingFraction: 0.5), value: bounceAnimation)
-                }
-                .buttonStyle(WaterDropButtonStyle())
-                .padding(.bottom, 80)
-                
-                Spacer()
+                            .shadow(color: .blue.opacity(0.3), radius: 10, x: 0, y: 5)
+                    )
+                    .scaleEffect(bounceAnimation ? 0.9 : 1.0)
+                    .animation(.spring(response: 0.2, dampingFraction: 0.5), value: bounceAnimation)
             }
+            .buttonStyle(WaterDropButtonStyle())
+            .padding(.bottom, 80)
+            
+            Spacer()
         }
         .background(backgroundGradient)
         .alert("Reset Streak", isPresented: $showResetAlert) {
