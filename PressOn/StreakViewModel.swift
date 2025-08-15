@@ -47,7 +47,7 @@ class StreakViewModel: ObservableObject {
         }
     }
     
-    func getGradientColors() -> [Color] {
+    func getStreakGradientColors() -> [Color] {
         switch streak.count {
         case 0...7:
             return [.blue, .purple]
