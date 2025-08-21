@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "5E59E133-1E00-44C2-8C19-0BE610FAC5C9"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "382436E2-0B9A-4C64-BE71-EF3AA599A967"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PressOn/StreakModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "Streak"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "382436E2-0B9A-4C64-BE71-EF3AA599A967 - a67595f25119c387"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of PressOn.Streak.count : Swift.Int"
+                  moduleName = "PressOn.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/williamsio/Development/PressOn/PressOn/StreakModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11">
+               </Location>
+               <Location
+                  uuid = "382436E2-0B9A-4C64-BE71-EF3AA599A967 - b42bb7985a05f29c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PressOn.Streak.count.getter : Swift.Int"
+                  moduleName = "PressOn.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/williamsio/Development/PressOn/PressOn/StreakModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "382436E2-0B9A-4C64-BE71-EF3AA599A967 - 7e8c291b71dc24cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PressOn.Streak.count.setter : Swift.Int"
+                  moduleName = "PressOn.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/williamsio/Development/PressOn/PressOn/StreakModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11">
+               </Location>
+               <Location
+                  uuid = "382436E2-0B9A-4C64-BE71-EF3AA599A967 - b75df362f9f29fbe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PressOn.Streak.count.modify : Swift.Int"
+                  moduleName = "PressOn.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/williamsio/Development/PressOn/PressOn/StreakModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11">
+               </Location>
+               <Location
+                  uuid = "382436E2-0B9A-4C64-BE71-EF3AA599A967 - c12423cf7fc5e93d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PressOn.Streak.count.modify : Swift.Int with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "PressOn.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "382436E2-0B9A-4C64-BE71-EF3AA599A967 - 21f0659f552ea475"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PressOn.Streak.$count.getter : SwiftUI.Binding&lt;Swift.Int&gt;"
+                  moduleName = "PressOn.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/williamsio/Development/PressOn/PressOn/StreakModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

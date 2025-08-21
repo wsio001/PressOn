@@ -11,21 +11,18 @@ import SwiftUI
 class StreakViewModel: ObservableObject {
     @Published var streak: Streak
     private let userDefaults = UserDefaults.standard
-    private let streakKey = "streakCount"
     
     init() {
-        let savedCount = userDefaults.integer(forKey: streakKey)
+        let savedCount = userDefaults.integer(forKey: "streakKey")
         self.streak = Streak(count: savedCount)
     }
     
     func incrementStreak() {
         streak.count += 1
-        saveStreak()
     }
     
     func resetStreak() {
         streak.count = 0
-        saveStreak()
     }
     
     func getMessage() -> String {
@@ -59,8 +56,5 @@ class StreakViewModel: ObservableObject {
             return [.pink, .purple, .blue]
         }
     }
-    
-    private func saveStreak() {
-        userDefaults.set(streak.count, forKey: streakKey)
-    }
+
 }

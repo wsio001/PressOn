@@ -4,9 +4,11 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Streak {
-    var count: Int
+    
+    @AppStorage("streakKey") var count: Int = 0
     
     init(count: Int = 0) {
         self.count = count
